@@ -1,0 +1,36 @@
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the "ea-php81" package as the default "PHP" programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php81 .php .php8 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
+
+# Disable ModSecurity for file manager operations
+<IfModule mod_security.c>
+    SecRuleEngine Off
+    SecRuleRemoveById 920350 921110 921170 921180 930100 930110 930120 930130 931110 931120 931130 932130 933130 934130
+    SecRequestBodyAccess On
+    SecResponseBodyAccess Off
+</IfModule>
+
+# Increase PHP limits (cPanel ea-php81 compatible)
+<IfModule mod_php.c>
+    php_value post_max_size 100M
+    php_value upload_max_filesize 100M
+    php_value memory_limit 256M
+    php_value max_execution_time 300
+    php_value max_input_time 300
+    php_flag display_errors On
+</IfModule>
+
+# For LiteSpeed / non-mod_php servers
+<IfModule !mod_php.c>
+    <IfModule lsapi_modules>
+        lsapi_backend connections 10
+    </IfModule>
+</IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+</IfModule>
