@@ -184,7 +184,7 @@ Contributions welcome! Feel free to open issues or submit pull requests.
 
 ## Author
 
-**Nasiruddin** — [@your-github](https://github.com/your-github)
+**Bijoy Kumar Nath** — [@bijoyknath999](https://github.com/bijoyknath999/)
 
 ---
 
